@@ -8,10 +8,12 @@ const nodemailer = require('nodemailer')
 // Route d'inscription d'un nouvel utilisateur
 router.post('/register', async (req, res) => {
     const { username, email, password } = req.body
-
+    
     if (!username || !email || !password) {
         return res.status(400).json({ error: 'Tous les champs sont requis' })
     }
+    
+
     // Vérifie si l'utilisateur existe déjà
     const existinguser = await User.findOne({ email })
     if (existinguser) {
