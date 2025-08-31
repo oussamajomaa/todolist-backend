@@ -1,6 +1,6 @@
+require('dotenv').config(); // Chargement des variables d'environnement
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config(); // Chargement des variables d'environnement
 const cors = require('cors');
 const cookieParser = require('cookie-parser')
 
@@ -13,7 +13,7 @@ app.use(cookieParser())
 
 // Middlewares globaux
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: process.env.ORIGIN_URI,
     credentials: true
 }))
 
